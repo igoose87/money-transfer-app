@@ -9,8 +9,7 @@ export class Router {
   #layout = null
 
   constructor(){
-    // отлавливание событий кнопок назад и вперед
-    window.addEventListener('popstate', () => {
+    window.addEventListener('popstate', () => { // отлавливание событий кнопок назад и вперед
       this.#handleRouteChange()
     })
     
@@ -64,7 +63,7 @@ export class Router {
       })
       document.getElementById('app').innerHTML = this.#layout.render()
     } else {
-      document.querySelector('main').innerHTML = component.#render()
+      document.querySelector('main').innerHTML = component.render()
     }
   }
 }
