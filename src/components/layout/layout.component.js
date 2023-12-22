@@ -1,7 +1,7 @@
 export class Layout {
-  constructor({router, child}){
+  constructor({ router, children }){
     this.router = router
-    this.child = child
+    this.children = children
   }
 
   render(){
@@ -16,7 +16,7 @@ export class Layout {
     return `
       ${headerHTML}
       <main>
-      ${this.child}
+        ${this.child}
       </main>
     `
   } 

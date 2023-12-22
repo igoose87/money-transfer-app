@@ -1,6 +1,6 @@
 import { NotFound } from '@/components/screens/not-found/not-found.component'
-import { Layout } from "@/components/layout/layout.component";
-import { ROUTES } from "./routes.data";
+import { Layout } from '@/components/layout/layout.component'
+import { ROUTES } from './routes.data'
 
 
 export class Router {
@@ -22,8 +22,8 @@ export class Router {
     document.addEventListener('click', event => {
       const target = event.target.closest('a')
 
-      if (target){
-        event.preventDefault() // выключаем поведение ссылок по умолчанию
+      if (target) {
+        event.preventDefault()
         this.navigate(target.href)
       }
     })
@@ -60,7 +60,7 @@ export class Router {
     if(!this.#layout){
       this.#layout = new Layout({
         router: this,
-        child: component.render()
+        children: component.render()
       })
       document.getElementById('app').innerHTML = this.#layout.render()
     } else {
