@@ -1,6 +1,7 @@
-import { Layout } from "../../components/layout/layout.component";
-import { NotFound } from "../../components/screens/not-found/not-found.component";
+import { NotFound } from '@/components/screens/not-found/not-found.component'
+import { Layout } from "@/components/layout/layout.component";
 import { ROUTES } from "./routes.data";
+
 
 export class Router {
   #routes = ROUTES
