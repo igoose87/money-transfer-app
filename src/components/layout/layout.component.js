@@ -16,7 +16,7 @@ export class Layout {
     return `
       ${headerHTML}
       <main>
-        ${this.child}
+        ${this.children}
       </main>
     `
   } 
