@@ -29,7 +29,7 @@ class RenderService {
   */
   #replaceComponentTags(parentElement, components) {
     // pattern for search tags (ex: component-heading, component-card-info)
-    const componentTagPattern = /^component-/                   // regular expr from ^(begining of the string) to comment-
+    const componentTagPattern = /^component-/                   // regular expr from ^(beginning of the string) to comment-
     const allElements = parentElement.getElementsByTagName('*') // find all tags
 
     for (const element of allElements){                         // check tags for pattern
