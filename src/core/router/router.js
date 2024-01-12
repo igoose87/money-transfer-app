@@ -9,7 +9,7 @@ export class Router {
   #layout = null
 
   constructor(){
-    window.addEventListener('popstate', () => { // отлавливание событий кнопок назад и вперед
+    window.addEventListener('popstate', () => {   // отлавливание событий кнопок назад и вперед
       this.#handleRouteChange()
     })
     
@@ -17,13 +17,14 @@ export class Router {
     this.#handleLinks()
   }
 
+  // to forbid page reload
   #handleLinks(){
-    document.addEventListener('click', event => {
+    document.addEventListener('click', event => { // отслеживание клика по ссылке
       const target = event.target.closest('a')
 
-      if (target) {
-        event.preventDefault()
-        this.navigate(target.href)
+      if (target) {                               // если ссылка найдена
+        event.preventDefault()                    // отключение действий ссылок по-умолчанию
+        this.navigate(target.href)                // переход по атрибуту из ссылки
       }
     })
   }
@@ -32,10 +33,10 @@ export class Router {
     return window.location.pathname
   }
 
-  navigate(path){
-    if (path !== this.getCurrentPath()){
-      window.history.pushState({}, '', path)
-      this.#handleRouteChange()
+  navigate(path){                                 // (path) - путь по которому хотим перейти
+    if (path !== this.getCurrentPath()){          // текущий путь != тому, по которому хотим перейти
+      window.history.pushState({}, '', path)      // поменять историю ссылок и запушать новый url
+      this.#handleRouteChange()                   // прогрузить страницу по новому url
     }
   }
 
