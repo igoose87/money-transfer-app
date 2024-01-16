@@ -34,17 +34,17 @@ class RenderService {
 
     for (const element of allElements){                         // check tags for pattern
       const elementTagName = element.tagName.toLowerCase()
-      if (componentTagPattern.test(elementTagName)) {
-        const componentName = element.tagName                   // if ok clear from tag and get component name
+      if (componentTagPattern.test(elementTagName)) {           // if ok clear from tag and get component name (ex: heading)
+        const componentName = element.tagName                   
         .toLowerCase()
-        .replace(componentTagPattern, '')
-        .replace(/-/g, '')
+        .replace(componentTagPattern, '')                       // delete component
+        .replace(/-/g, '')                                      // delete -
 
         const foundComponent = components.find(Component => {   // find component by component name
           const instance = 
             Component instanceof ChildComponent ? Component : new Component() // check is it instance
 
-          return instance.constructor.name.toLowerCase() === componentName
+          return instance.constructor.name.toLowerCase() === componentName // name - className in lower case
         })
 
         if (foundComponent) {                                    // if component ok -> render, else - create instance -> render
@@ -68,7 +68,7 @@ class RenderService {
    * @returns {void}
   */
 
-  // get module styles with done classes, element (parent block [97 str, home div])
+  // get module styles with done classes, element (parent block [101 str, home div])
   #applyModuleStyles(moduleStyles, element) {
     if (!element)                                               // if not element return
       return
