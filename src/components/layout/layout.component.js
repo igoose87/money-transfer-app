@@ -1,3 +1,10 @@
+import renderService from "@/core/services/render.service"
+
+import styles from './layout.module.scss'
+import template from './layout.template.html'
+import { $R } from "@/core/rquery/rquery.lib"
+import { Header } from "./header/header.component"
+
 export class Layout {
   constructor({ router, children }){
     this.router = router
@@ -5,19 +12,14 @@ export class Layout {
   }
 
   render(){
-    const headerHTML = `<header>
-      Header
-      <nav>
-        <a href="/">Home</a>
-        <a href="/auth">Auth</a>
-      </nav>
-    </header>`
+    this.element = renderService.htmlToElement(template, [], styles)
 
-    return `
-      ${headerHTML}
-      <main>
-        ${this.children}
-      </main>
-    `
-  } 
+    const mainElement = $R(this.element).find('main')
+
+    const contentContainer = $
+
+    mainElement.before(new Header().render())
+
+    return this.element.outerHTML
+  }
 }
