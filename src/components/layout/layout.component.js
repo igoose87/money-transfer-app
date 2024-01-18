@@ -16,8 +16,6 @@ export class Layout {
 
     const mainElement = $R(this.element).find('main')
 
-    const contentContainer = $
-
     mainElement.before(new Header().render())
 
     return this.element.outerHTML
