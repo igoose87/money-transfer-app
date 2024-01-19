@@ -4,9 +4,11 @@ import styles from './layout.module.scss'
 import template from './layout.template.html'
 import { $R } from "@/core/rquery/rquery.lib"
 import { Header } from "./header/header.component"
+import ChildComponent from "@/core/component/child.component"
 
-export class Layout {
+export class Layout extends ChildComponent {
   constructor({ router, children }){
+    super()
     this.router = router
     this.children = children
   }
@@ -16,8 +18,13 @@ export class Layout {
 
     const mainElement = $R(this.element).find('main')
 
-    mainElement.before(new Header().render())
+    const contentContainer = $R(this.element).find('#content')
+    contentContainer.append(this.children)
 
-    return this.element.outerHTML
+    mainElement
+      .before(new Header().render())
+      .append(contentContainer.element)
+
+    return this.element
   }
 }
