@@ -1,9 +1,9 @@
 import ChildComponent from '@/core/component/child.component'
-import RenderService from '@/core/services/render.services'
 
 import styles from './button.module.scss'
 import template from './button.template.html'
 import { $R } from '@/core/rquery/rquery.lib'
+import renderService from '@/core/services/render.service'
 
 export class Button extends ChildComponent {
   constructor({children, onClick, variant}){
@@ -16,9 +16,12 @@ export class Button extends ChildComponent {
   }
 
   render() {
-    this.element = RenderService.htmlToElement(template, [], styles);
+    this.element = renderService.htmlToElement(template, [], styles);
 
     $R(this.element).html(this.children).click(this.onClick)
+
+    if (this.variant)
+      $R(this.element).addClass(styles[this.variant])
 
     return this.element;
   }
