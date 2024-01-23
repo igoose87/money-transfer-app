@@ -2,7 +2,7 @@ import { NotFound } from '@/components/screens/not-found/not-found.component'
 import { Layout } from '@/components/layout/layout.component'
 import { ROUTES } from './routes.data'
 import { $R } from '../rquery/rquery.lib'
-
+import { Auth } from '@/components/screens/auth/auth.component'
 
 export class Router {
   #routes = ROUTES
