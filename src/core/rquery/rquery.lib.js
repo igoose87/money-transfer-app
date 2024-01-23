@@ -129,9 +129,10 @@ class RQuery {
    * @param {object} [options.rest] - Optional attributes to set on the input element.
    * @returns {RQuery} The current RQuery instance for chaining.
    */
-  input(onInput, ...rest){
+  input({ onInput, ...rest }){
     if (this.element.tagName.toLowerCase() !== 'input')
-
+      throw new Error('Element must be an input')
+    
     for (const [key, value] of Object.entries(rest)){
       this.element.setAttribute(key, value)
     }
