@@ -1,5 +1,5 @@
 import ChildComponent from '@/core/component/child.component'
-import RenderService from '@/core/services/render.services'
+import renderService from '@/core/services/render.service'
 
 import styles from './heading.module.scss'
 import template from './heading.template.html'
@@ -13,7 +13,7 @@ export class Heading extends ChildComponent {
   }
 
   render() {
-    this.element = RenderService.htmlToElement(template, [], styles);
+    this.element = renderService.htmlToElement(template, [], styles);
 
     $R(this.element).text(this.title)
 
