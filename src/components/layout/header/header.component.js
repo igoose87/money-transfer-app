@@ -15,17 +15,20 @@ export class Header extends ChildComponent {
     this.router = router
   }
   render() {
-    this.element = renderService.htmlToElement(template, [
-      Logo, 
-      new LogoutButton({
-        router: this.router
-      }), 
-      Search, 
-      new UserItem({
-        avatarPath: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE4qaVzeEg9j60I9z2eR77MY6ilKM9l1J82A&usqp=CAU',
+    this.element = renderService.htmlToElement(
+      template, 
+      [
+        Logo, 
+        new LogoutButton({
+          router: this.router
+        }), 
+        Search, 
+        new UserItem({
+          avatarPath: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE4qaVzeEg9j60I9z2eR77MY6ilKM9l1J82A&usqp=CAU',
           name: 'igoose87'
-      })
-    ], styles)
+        })
+      ], 
+    styles)
 
     return this.element;
   }
