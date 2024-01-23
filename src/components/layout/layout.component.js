@@ -22,7 +22,10 @@ export class Layout extends ChildComponent {
     contentContainer.append(this.children)
 
     mainElement
-      .before(new Header().render())
+      .before(new Header({
+        router: this.router
+      })
+      .render())
       .append(contentContainer.element)
 
     return this.element

@@ -10,9 +10,18 @@ import { Search } from './search/search.component';
 import { UserItem } from '@/components/ui/user-item/user-item.component';
 
 export class Header extends ChildComponent {
+  constructor({router}){
+    super()
+    this.router = router
+  }
   render() {
     this.element = renderService.htmlToElement(template, [
-      Logo, new LogoutButton(), Search, new UserItem({
+      Logo, 
+      new LogoutButton({
+        router: this.router
+      }), 
+      Search, 
+      new UserItem({
         avatarPath: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE4qaVzeEg9j60I9z2eR77MY6ilKM9l1J82A&usqp=CAU',
           name: 'igoose87'
       })
