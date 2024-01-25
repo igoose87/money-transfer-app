@@ -16,7 +16,7 @@ export class Auth extends BaseScreen {
       template, 
       [
         new Heading('Auth')
-      ], 
+      ],
       styles);
 
     return this.element;
