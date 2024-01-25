@@ -1,5 +1,5 @@
-import { SERVER_URL } from "@/config/url.config"
-import { extractErrorMessage } from "./extract-error-message"
+import { SERVER_URL } from '@/config/url.config'
+import { extractErrorMessage } from './extract-error-message'
 
 /**
  * RedQuery is a minimalistic library for handling API requests.
