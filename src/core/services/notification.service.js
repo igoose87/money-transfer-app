@@ -1,4 +1,5 @@
-import { $R } from "../rquery/rquery.lib"
+import { $R } from '../rquery/rquery.lib'
+import styles from '@/components/layout/notification/notification.module.scss'
 
 /**
  * NotificationService is a utility class to handle displaying notifications.
