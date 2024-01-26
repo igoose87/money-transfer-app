@@ -6,8 +6,8 @@ import renderService from '@/core/services/render.service'
 
 export class Notification extends ChildComponent {
   render() {
-    this.element = renderService.htmlToElement(template, [], styles);
+    this.element = renderService.htmlToElement(template, [], styles)
 
-    return this.element;
+    return this.element
   }
 }
