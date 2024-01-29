@@ -14,7 +14,7 @@ export class Store {
    * @param {Object} initialState - The initial state for th store.
    */
   constructor(initialState) {
-    this.observers = []
+    this.observers = []             // all components which will listen all changes of user
 
     this.storageService = new StorageService()
     const savedUser = this.storageService.getItem(USER_STORAGE_KEY)
