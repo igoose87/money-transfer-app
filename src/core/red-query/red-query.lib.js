@@ -25,8 +25,8 @@ export async function redQuery({
   body=null,
   headers={},
   method='GET',
-  onSuccess=null,
-  onError=null
+  onError=null,
+  onSuccess=null
 }){
   let isLoading = true
   let error = null
@@ -67,7 +67,7 @@ export async function redQuery({
         onError(errorMessage)
       }
 
-      new NotificationService.show('error', errorMessage)
+      new NotificationService().show('error', errorMessage)
     }
   } catch (errorData) {
     const errorMessage = extractErrorMessage(errorData)
