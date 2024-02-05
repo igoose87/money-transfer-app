@@ -3,12 +3,12 @@ import renderService from '@/core/services/render.service'
 import styles from './auth.module.scss'
 import template from './auth.template.html'
 import { BaseScreen } from '@/core/component/base-screen.component';
-import { AuthService } from '@/api/auth.service';
-import { $R } from '@/core/rquery/rquery.lib';
-import { Field } from '@/components/ui/field/field.component';
+import { AuthService } from '@/api/auth.service'
+import { $R } from '@/core/rquery/rquery.lib'
+import { Field } from '@/components/ui/field/field.component'
 import { Button } from '@/components/ui/button/button.component'
-import formService from '@/core/services/form.service';
-import validationService from '@/core/services/validation.service';
+import formService from '@/core/services/form.service'
+import validationService from '@/core/services/validation.service'
 
 export class Auth extends BaseScreen {
   #isTypeLogin = true
