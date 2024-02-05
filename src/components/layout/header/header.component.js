@@ -16,10 +16,14 @@ export class Header extends ChildComponent {
     super()
 
     this.store = Store.getInstance()
-    
     this.store.addObserver(this)
 
     this.router = router
+
+    this.UserItem = new UserItem({
+      avatarPath: '/',
+      name: 'igoose87'
+    })
   }
 
   update(){
@@ -29,6 +33,7 @@ export class Header extends ChildComponent {
     
     if(this.user){
       authSideElement.show()
+      this.UserItem.update(this.user)
       this.router.navigate('/')
     } else {
       authSideElement.hide()
@@ -44,10 +49,7 @@ export class Header extends ChildComponent {
           router: this.router
         }), 
         Search, 
-        new UserItem({
-          avatarPath: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTE4qaVzeEg9j60I9z2eR77MY6ilKM9l1J82A&usqp=CAU',
-          name: 'igoose87'
-        })
+        this.UserItem
       ], 
     styles)
     this.update()
