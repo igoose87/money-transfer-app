@@ -1,15 +1,14 @@
 import ChildComponent from '@/core/component/child.component'
-
 import styles from './button.module.scss'
 import template from './button.template.html'
 import { $R } from '@/core/rquery/rquery.lib'
 import renderService from '@/core/services/render.service'
 
 export class Button extends ChildComponent {
-  constructor({children, onClick, variant}){
+  constructor({ children, onClick, variant }){
     super()
-
     if(!children) throw new Error('Children is empty!')
+
     this.children = children
     this.onClick = onClick
     this.variant = variant
@@ -20,8 +19,7 @@ export class Button extends ChildComponent {
 
     $R(this.element).html(this.children).click(this.onClick)
 
-    if (this.variant)
-      $R(this.element).addClass(styles[this.variant])
+    if (this.variant) $R(this.element).addClass(styles[this.variant])
 
     return this.element;
   }
