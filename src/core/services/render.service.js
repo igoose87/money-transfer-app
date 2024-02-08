@@ -10,9 +10,15 @@ class RenderService {
    * @returns {HTMLElement}
    */
   htmlToElement(html, components = [], styles){
-    const template = document.createElement('template')
-    template.innerHTML = html.trim()
-    const element = template.content.firstChild
+    // first version
+    // const template = document.createElement('template')
+    // template.innerHTML = html.trim()
+    // const element = template.content.firstChild
+
+    //* more safe version 
+    const parser = new DOMParser()
+    const doc = parser.parseFromString(html, 'text/html')
+    const element = doc.body.firstChild
 
     if (styles) {
       this.#applyModuleStyles(styles, element)
@@ -95,13 +101,3 @@ class RenderService {
 }
 
 export default new RenderService()
-
-{
-  /* 
-  <div class='home'>
-    <h1 class='text'></h1>
-    <component-heading></component-heading>
-    <component-card-info></component-card-info>
-  </div>
-  */
-}
