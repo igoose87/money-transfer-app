@@ -1,7 +1,6 @@
 import ChildComponent from '@/core/component/child.component'
 import renderService from '@/core/services/render.service'
 
-import styles from './loader.module.scss'
 import template from './loader.template.html'
 import { $R } from '@/core/rquery/rquery.lib'
 
@@ -15,12 +14,14 @@ export class Loader extends ChildComponent {
     this.height = height
   }
   render() {
-    this.element = renderService.htmlToElement(template, [], styles);
+    this.element = renderService.htmlToElement(template, []);
 
-    $R(this.element)
-      .css('width', `${this.width}px`)
-      .css('height', `${this.height}px`)
-      .addClass('bounce')               // для появления лоадера
+    this.element.style = `width: ${this.width}px; height: ${this.height}px`
+    this.element.classList.add('bounce')
+    // $R(this.element)
+    //   .css('width', `${this.width}px`)
+    //   .css('height', `${this.height}px`)
+    //   .addClass('bounce')               // для появления лоадера
 
     return this.element;
   }
