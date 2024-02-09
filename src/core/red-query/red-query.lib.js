@@ -70,9 +70,11 @@ export async function redQuery({
 	} catch (errorData) {
 		const errorMessage = extractErrorMessage(errorData)
 
-		if (errorMessage) {
+		if (onError) {
 			onError(errorMessage)
 		}
+
+		new NotificationService().show('error', errorMessage)
 	} finally {
 		isLoading = false
 	}
